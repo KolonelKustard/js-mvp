@@ -1,0 +1,43 @@
+pavlov.specify("Weather Finder", function() {
+    describe("Weather Model", function() {
+        before(function() {
+            $.mockjaxClear();
+        });
+
+        it("makes an AJAX request to the weather service to find it's raining "
+                + "in Aberystwyth", async(function() {
+            $.mockjax({
+                url: "http://api.openweathermap.org/data/2.5/weather",
+                data: {
+                    q: "Aberystwyth, Wales"
+                },
+                responseTime: 0,
+                status: 500,
+                responseText: {
+                    "weather": [{
+                        "main": "Rain",
+                        "description": "light rain",
+                        "icon": "10d"
+                    }],
+                    "main":{
+                        "temp":285.382
+                    },
+                    "name": "Aberystwyth"
+                }
+            });
+
+            var weatherModel = new WeatherModel();
+            weatherModel.getWeather(
+                "Aberystwyth, Wales",
+                function(response) {
+                    assert(response.weather[0].main).equals("Rain");
+                    resume();
+                },
+                function(what, happened, here) {
+                    assert.fail(what + happened + here);
+                    resume();
+                }
+            );
+        }));
+    });
+});
