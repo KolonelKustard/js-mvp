@@ -4,7 +4,7 @@ pavlov.specify("Weather Finder", function() {
             $.mockjaxClear();
         });
 
-        it("makes an AJAX request to the weather service to find it's raining "
+        it("Makes an AJAX request to the weather service to find it's raining "
                 + "in Aberystwyth", async(function() {
             $.mockjax({
                 url: "http://api.openweathermap.org/data/2.5/weather",
