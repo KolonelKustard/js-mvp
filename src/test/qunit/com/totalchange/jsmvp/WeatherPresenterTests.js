@@ -34,5 +34,30 @@ pavlov.specify("Weather Finder", function() {
             verify(mockWeatherView).setWeatherReport("Amazing");
             expect(0);
         });
+
+        it("Clears the weather if no location is provided", function() {
+            when(mockWeatherView).getLocation().thenReturn("");
+
+            weatherPresenter.updateWeather();
+
+            verify(mockWeatherView).setWeatherReport("");
+            expect(0);
+        });
+
+        it("Clears the weather if an error occurs", function() {
+            when(mockWeatherView).getLocation().thenReturn(
+                    "Punta Hermosa, Peru");
+            when(mockWeatherModel).getWeather("Punta Hermosa, Peru", func(),
+                    func()).then(
+                function(location, successCallback, errorCallback) {
+                    errorCallback("Something", "bad", "happened");
+                }
+            );
+
+            weatherPresenter.updateWeather();
+
+            verify(mockWeatherView).setWeatherReport("");
+            expect(0);
+        });
     });
 });
