@@ -6,15 +6,17 @@ var WeatherView = function() {
     }
 
     this.start = function() {
-        // Does nothing
+        $("#weatherForm").submit(function() {
+            presenter.updateWeather();
+            return false;
+        });
     }
 
     this.getLocation = function() {
-        // TODO: Write me
-        return "Arse";
+        return $("#location").val();
     }
 
     this.setWeatherReport = function(weather) {
-        // TODO: Write me
+        $("#weather").text(weather);
     }
 }
