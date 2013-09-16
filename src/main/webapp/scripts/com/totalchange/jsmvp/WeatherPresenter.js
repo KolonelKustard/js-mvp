@@ -1,4 +1,4 @@
-var WeatherPresenter = function(weatherView, weatherModel) {
+var WeatherPresenter = function(weatherModel, weatherView) {
     var self = this;
 
     /**
@@ -28,7 +28,6 @@ var WeatherPresenter = function(weatherView, weatherModel) {
             return;
         }
 
-        console.log("Location: " + location);
         weatherModel.getWeather(location, processWeatherResponse, function(
                 what, happened, here) {
             console.log(what, happened, here);

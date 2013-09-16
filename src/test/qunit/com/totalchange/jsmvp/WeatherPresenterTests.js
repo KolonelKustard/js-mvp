@@ -11,8 +11,8 @@ pavlov.specify("Weather Finder", function() {
         before(function() {
             mockWeatherView = mock(WeatherView);
             mockWeatherModel = mock(WeatherModel);
-            weatherPresenter = new WeatherPresenter(mockWeatherView,
-                    mockWeatherModel);
+            weatherPresenter = new WeatherPresenter(mockWeatherModel,
+                    mockWeatherView);
         });
 
         it("Updates the view with the current weather", function() {
