@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+        http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.totalchange.jsmvp</groupId>
+    <artifactId>js-mvp</artifactId>
+    <packaging>war</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>JavaScript Model View Presenter Example</name>
+    <url>http://www.totalchange.com</url>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.cj.qunit.mojo</groupId>
+                <artifactId>qunit-maven-plugin</artifactId>
+                <version>2.0.8</version>
+                <configuration>
+                    <runner>HTMLUNIT</runner>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
