@@ -1,6 +1,4 @@
 var WeatherPresenter = function(weatherModel, weatherView) {
-    var self = this;
-
     /**
      * Constructor.
      */
@@ -11,7 +9,7 @@ var WeatherPresenter = function(weatherModel, weatherView) {
             weatherView.setPresenter(self);
             weatherView.start();
         }
-    }
+    };
 
     var processWeatherResponse = function(response) {
         if (response.weather.length > 0) {
@@ -19,7 +17,7 @@ var WeatherPresenter = function(weatherModel, weatherView) {
         } else {
             weatherView.setWeatherReport("");
         }
-    }
+    };
 
     this.updateWeather = function() {
         var location = weatherView.getLocation();
@@ -30,11 +28,10 @@ var WeatherPresenter = function(weatherModel, weatherView) {
 
         weatherModel.getWeather(location, processWeatherResponse, function(
                 what, happened, here) {
-            console.log(what, happened, here);
             weatherView.setWeatherReport("");
         });
-    }
+    };
 
     // Call constructor
     init();
-}
+};
