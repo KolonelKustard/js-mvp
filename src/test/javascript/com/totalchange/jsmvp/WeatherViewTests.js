@@ -33,14 +33,14 @@ describe("Weather Finder", function() {
             expect(weatherView.getLocation()).toBe("Kuala Lumpa, Malaysia");
         });
 
-        it("Displays the weather text in the UI", function() {
-            weatherView.setWeatherReport("Scorchio");
-            expect(weatherDiv.text()).toBe("Scorchio");
-        });
-
         it("Tells the presenter when the form is submitted", function() {
             submitButton.click();
             expect(mockWeatherPresenter.updateWeather).toHaveBeenCalled();
+        });
+
+        it("Displays the weather text in the UI", function() {
+            weatherView.setWeatherReport("Scorchio");
+            expect(weatherDiv.text()).toBe("Scorchio");
         });
     });
 });

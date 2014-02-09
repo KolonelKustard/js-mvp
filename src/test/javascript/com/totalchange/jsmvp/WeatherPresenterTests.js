@@ -32,7 +32,8 @@ describe("Weather Finder", function() {
 
             weatherPresenter.updateWeather();
 
-            expect(mockWeatherView.setWeatherReport).toHaveBeenCalledWith("Amazing");
+            expect(mockWeatherView.setWeatherReport).toHaveBeenCalledWith(
+                    "Amazing");
         });
 
         it("Clears the weather if no location is provided", function() {

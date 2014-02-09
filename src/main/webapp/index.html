@@ -21,8 +21,9 @@
         <script src="scripts/com/totalchange/jsmvp/WeatherView.js" type="text/javascript"></script>
         <script src="scripts/com/totalchange/jsmvp/WeatherPresenter.js" type="text/javascript"></script>
         <script type="text/javascript">
+            var weatherPresenter = null;
             $(document).ready(function() {
-                WeatherPresenter = new WeatherPresenter(new WeatherModel(),
+                weatherPresenter = new WeatherPresenter(new WeatherModel(),
                         new WeatherView());
             });
         </script>

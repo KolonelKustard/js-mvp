@@ -10,12 +10,16 @@ var WeatherModel = function() {
             data: {
                 q: location
             },
+
+            // This has to be JSONP as it crosses domains
             dataType: "jsonp",
+
+            // Just pass the successful response on back to the caller
             success: function(response) {
                 successCallback(response);
             },
 
-            // As we're using JSONP we'll never find out about errors
+            // As we're using JSONP we'll actually never find out about errors
             error: function(what, happened, here) {
                 if (window.console && console.log) {
                     console.log(what, happened, here);

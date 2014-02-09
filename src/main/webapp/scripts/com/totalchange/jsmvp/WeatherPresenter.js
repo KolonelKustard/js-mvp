@@ -1,4 +1,6 @@
 var WeatherPresenter = function(weatherModel, weatherView) {
+    var self = this;
+
     /**
      * Constructor.
      */
