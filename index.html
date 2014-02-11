@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather Finder</title>
+        <meta http-equiv="Content-type" content="text/html;charset=utf-8" />
+    </head>
+    <body>
+        <p>Enter the location where you'd like to find out the weather and then
+            click 'Go!'</p>
+        <form id="weatherForm">
+            <label for="location">Location:</label>
+            <input id="location" type="text" />
+
+            <input value="Go!" type="submit" />
+        </form>
+        <p>The weather is: <span id="weather"></span></p>
+
+        <script src="http://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
+
+        <script src="scripts/jsmvp.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var weatherPresenter = null;
+            $(document).ready(function() {
+                weatherPresenter = new WeatherPresenter(new WeatherModel(),
+                        new WeatherView());
+            });
+        </script>
+    </body>
+</html>
