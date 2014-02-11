@@ -10,7 +10,12 @@
     <version>1.0.0-SNAPSHOT</version>
     <name>JavaScript Model View Presenter Example</name>
     <url>http://www.totalchange.com</url>
-    
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -32,6 +37,29 @@
                         <source>//kolonelkustard.github.io/js-mvp/jquery.mockjax/jquery.mockjax-1.5.2.js</source>
                     </preloadSources>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.samaxes.maven</groupId>
+                <artifactId>minify-maven-plugin</artifactId>
+                <version>1.7.2</version>
+                <executions>
+                    <execution>
+                        <id>minify</id>
+                        <configuration>
+                            <jsSourceDir>scripts</jsSourceDir>
+                            <jsSourceFiles>
+                                <jsSourceFile>com/totalchange/jsmvp/WeatherModel.js</jsSourceFile>
+                                <jsSourceFile>com/totalchange/jsmvp/WeatherView.js</jsSourceFile>
+                                <jsSourceFile>com/totalchange/jsmvp/WeatherPresenter.js</jsSourceFile>
+                            </jsSourceFiles>
+                            <jsFinalFile>jsmvp.js</jsFinalFile>
+                        </configuration>
+                        <goals>
+                            <goal>minify</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
